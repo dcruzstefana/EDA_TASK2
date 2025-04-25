@@ -24,7 +24,7 @@ for col in categorical_cols:
     print(f"{col}: {df[col].nunique()} unique values")
 
 numeric_cols = df.select_dtypes(include=['float64', 'int64']).columns
-'''
+
 print("\nCreating Histograms...")
 df[numeric_cols].hist(bins=30, figsize=(15, 10), color='#1f77b4')
 plt.suptitle("Histogram of Numeric Features", fontsize=16)
@@ -64,7 +64,7 @@ g = sns.PairGrid(df[numeric_cols])
 g.map_diag(sns.histplot, kde=True)
 g.map_offdiag(sns.scatterplot)
 plt.show()
-'''
+
 print("\nOutlier Detection Summary:")
 for col in numeric_cols:
     Q1 = df[col].quantile(0.25)
